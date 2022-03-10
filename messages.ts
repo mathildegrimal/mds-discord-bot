@@ -1,5 +1,13 @@
 module.exports = {
-    helloKeywords: ['hello', 'salut', 'bonjour', 'ciao', 'coucou', 'hey', 'bijour'],
+    helloKeywords: [
+        'hello',
+        'salut',
+        'bonjour',
+        'ciao',
+        'coucou',
+        'hey',
+        'bijour',
+    ],
     hellos: ['Bonjour', 'Saionara', 'Ciao', 'Hi', 'Olà', 'Gutten tag'],
     howAreYou: [
         'Comment ça va',
