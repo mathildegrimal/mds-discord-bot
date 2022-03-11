@@ -1,6 +1,6 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
-const { SlashCommandBuilder } = require('@discordjs/builders');
+import { SlashCommandBuilder } from '@discordjs/builders';
 
 export default {
     data: new SlashCommandBuilder()

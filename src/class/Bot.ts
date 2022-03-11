@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import { Collection, TextChannel } from 'discord.js';
+import { Collection } from 'discord.js';
 import path from 'path';
 const { Client, Intents } = require('discord.js');
 import fs from 'fs';

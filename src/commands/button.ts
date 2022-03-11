@@ -1,7 +1,10 @@
-import { CommandInteraction } from "discord.js";
 
-const { MessageActionRow, MessageButton } = require("discord.js");
-const { SlashCommandBuilder } = require('@discordjs/builders');
+import {
+    MessageActionRow,
+    MessageButton,
+    CommandInteraction,
+} from 'discord.js';
+import  { SlashCommandBuilder } from '@discordjs/builders';
 
 export default {
     data: new SlashCommandBuilder()
@@ -10,7 +13,7 @@ export default {
     async execute(interaction: CommandInteraction) {
         const row = new MessageActionRow().addComponents(
             new MessageButton()
-                .setLabel('Consulter la météo')
+                .setLabel('Consulte ici la météo de montpellier')
                 .setStyle('LINK')
                 .setURL(
                     'https://www.lachainemeteo.com/meteo-france/ville-963/previsions-meteo-montpellier-aujourdhui'
