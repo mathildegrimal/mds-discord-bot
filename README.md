@@ -14,7 +14,7 @@ Just paste this link in your browser :
 
 ### 3. How to talk with the bot
 
-- /commands to receive an embed message with all the interactions you can have with the bot
+- type /commands to receive an embed message with all the interactions you can have with the bot
 - Mention @MyWonderfulBot and it will send you a kind message to offer you help.
 - Say "hello" (language you want between italian, spanish, deutch, english, french and chinese) and it will answer you ! But it is not smart enough to answer in the same language as you. It is often confused between english and italian or spanish so...be patient and kind.
 - type /random, and choose min and max : it will send you a random number between min and max, so you can play the lotto or wtf game you want
@@ -43,7 +43,7 @@ BOT_TOKEN=<your_bot_token>
 
 #### Add other commands
 
-
+You have to read first how to create commands [here](https://discordjs.guide/interactions/slash-commands.html#registering-slash-commands)
 To create new commands, add a file in the folder commands with the command you want to add.
 A command is basically like this : 
 ```typescript
