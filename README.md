@@ -1,5 +1,5 @@
 # MyWonderFulBot,
-## a wonderful bot for discord that says hello in multiple languages
+## a wonderful bot for discord that is useless but was fun to develop
 
 ### 1. Technologies
 
