@@ -4,7 +4,7 @@ require('dotenv').config();
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { hellos, howAreYou, helloKeywords, mentions } = require('./messages');
-import { getCommands } from './deploy-commands';
+import { getCommands } from '../utils/deploy-commands';
 
 export class Bot {
     client = new Client({
