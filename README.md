@@ -43,7 +43,8 @@ BOT_TOKEN=<your_bot_token>
 
 #### Add other commands
 
-You have to read first how to create commands [here](https://discordjs.guide/interactions/slash-commands.html#registering-slash-commands)
+You have to read first how to create commands [here](https://discordjs.guide/interactions/slash-commands.html#registering-slash-commands).
+<br>
 To create new commands, add a file in the folder commands with the command you want to add.
 A command is basically like this : 
 ```typescript
