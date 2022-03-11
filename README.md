@@ -1,25 +1,25 @@
 # MyWonderFulBot,
 ## a wonderful bot for discord that says hello in multiple languages
 
-### Technologies
+### 1. Technologies
 
 The bot is writen in [TypeScript](https://www.typescriptlang.org/), built using [node.js](https://nodejs.org/en/) and the [discord.js](https://discord.js.org/#/) library.
 Good guide to understand how to code bots [here](https://discordjs.guide/)
 
 
-### How to install this bot on your server
+### 2. How to install this bot on your server
 
 Just paste this link in your browser :
 [MyWonderfulBot Link](https://discord.com/oauth2/authorize?client_id=951392211700969524&permissions=2048&scope=bot%20applications.commands)
 
-### How to talk with the bot
+### 3. How to talk with the bot
 
 - Mention @MyWonderfulBot and it will send you a kind message to offer you help.
 - Say "hello" (language you want between italian, spanish, deutch, english, french and chinese) and it will answer you ! But it is not smart enough to answer in the same language as you. It is often confused between english and italian or spanish so...be patient and kind.
 - type /random, and choose min and max : it will send you a random number between min and max, so you can play the lotto or wtf game you want
 
 
-### How to reuse the project and personalize it
+### 4. How to reuse the project and personalize it
 
 #### Installation
 
@@ -40,6 +40,7 @@ BOT_TOKEN=<your_bot_token>
 ```
 
 #### Add other commands
+
 
 To create new commands, add a file in the folder commands with the command you want to add.
 A command is basically like this : 
