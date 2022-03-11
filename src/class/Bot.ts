@@ -1,12 +1,12 @@
 require('dotenv').config();
 
-import { Collection } from 'discord.js';
+import { Collection, CommandInteraction, Message } from 'discord.js';
 import path from 'path';
 const { Client, Intents } = require('discord.js');
 import fs from 'fs';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
-import { hellos, howAreYou, helloKeywords, mentions } from '../config/messages';
+import { hellos, howAreYou, helloKeywords, mentions, help } from '../config/messages';
 import { getCommands } from '../utils/deploy-commands';
 
 export class Bot {
@@ -52,8 +52,9 @@ export class Bot {
     }
 
     listenMessages() {
-        this.client.on('messageCreate', async (message: any) => {
+        this.client.on('messageCreate', async (message: Message) => {
             const { content, channel } = message;
+            console.log(message);
 
             if (content.includes(this.client.user.id)) {
                 const messageContent = content.split(
@@ -79,34 +80,39 @@ export class Bot {
                         channel.send(messageToSend);
                     } else {
                         //reply when  mention of the bot by the user in message
-                        channel.send(mentions[this.getRandom(mentions)]);
+                        channel.send(`${mentions[this.getRandom(mentions)]} ${help}`);
                     }
                 } else {
                     //reply when  mention of the bot by the user (whithout message)
-                    channel.send(mentions[this.getRandom(mentions)]);
+                    channel.send(`${mentions[this.getRandom(mentions)]} ${help}`);
                 }
             }
         });
     }
 
     listenInteractions() {
-        this.client.on('interactionCreate', async (interaction) => {
-            if (!interaction.isCommand()) return;
+        this.client.on(
+            'interactionCreate',
+            async (interaction: CommandInteraction) => {
+                if (!interaction.isCommand()) return;
 
-            const command = this.client.commands.get(interaction.commandName);
-            
-            if (!command) return;
+                const command = this.client.commands.get(
+                    interaction.commandName
+                );
 
-            try {
-                await command.execute(interaction);
-            } catch (error) {
-                
-                await interaction.reply({
-                    content: 'There was an error while executing this command!',
-                    ephemeral: true,
-                });
+                if (!command) return;
+
+                try {
+                    await command.execute(interaction);
+                } catch (error) {
+                    await interaction.reply({
+                        content:
+                            'There was an error while executing this command!',
+                        ephemeral: true,
+                    });
+                }
             }
-        });
+        );
     }
 
     login() {
