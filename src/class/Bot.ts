@@ -1,18 +1,18 @@
-import { Collection, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from 'discord.js';
+require('dotenv').config();
+
+import { Collection, TextChannel } from 'discord.js';
 import path from 'path';
 const { Client, Intents } = require('discord.js');
-require('dotenv').config();
-const fs = require('fs');
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
-const { hellos, howAreYou, helloKeywords, mentions } = require('../config/messages');
+import fs from 'fs';
+import { REST } from '@discordjs/rest';
+import { Routes } from 'discord-api-types/v9';
+import { hellos, howAreYou, helloKeywords, mentions } from '../config/messages';
 import { getCommands } from '../utils/deploy-commands';
 
 export class Bot {
     client = new Client({
         intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
     });
-   
 
     constructor() {
         this.client.commands = new Collection();
@@ -20,8 +20,12 @@ export class Bot {
             .readdirSync(path.join(__dirname, '../commands'))
             .filter((file) => file.endsWith('.js'));
         for (const file of commandFiles) {
-            const command = require(path.join(__dirname, '../commands', file)).default;
-            this.client.commands.set(command.data.name, command);   
+            const command = require(path.join(
+                __dirname,
+                '../commands',
+                file
+            )).default;
+            this.client.commands.set(command.data.name, command);
         }
     }
 
@@ -34,25 +38,21 @@ export class Bot {
     putCommands() {
         const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
         const commands = getCommands();
-        rest
-            .put(
-                Routes.applicationGuildCommands(
-                    process.env.CLIENT_ID,
-                    process.env.GUILD_ID
-                ),
-                { body: commands }
-            )
+        rest.put(
+            Routes.applicationGuildCommands(
+                process.env.CLIENT_ID,
+                process.env.GUILD_ID
+            ),
+            { body: commands }
+        )
             .then(() =>
                 console.log('Successfully registered application commands.')
             )
             .catch(console.error);
     }
 
-    
-
     listenMessages() {
         this.client.on('messageCreate', async (message: any) => {
-
             const { content, channel } = message;
 
             if (content.includes(this.client.user.id)) {
@@ -61,6 +61,7 @@ export class Bot {
                 )[1];
 
                 if (messageContent) {
+                    //to remove special chars if user send hello with ! or another special char
                     const specialChars =
                         /[\s`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
@@ -93,12 +94,13 @@ export class Bot {
             if (!interaction.isCommand()) return;
 
             const command = this.client.commands.get(interaction.commandName);
+            
             if (!command) return;
 
             try {
                 await command.execute(interaction);
             } catch (error) {
-                console.error(error);
+                
                 await interaction.reply({
                     content: 'There was an error while executing this command!',
                     ephemeral: true,
@@ -113,10 +115,6 @@ export class Bot {
 
     getRandom(array: Array<string>) {
         return Math.floor(Math.random() * (array.length - 1));
-    }
-
-    sendMessage(channel: TextChannel, message: string) {
-        channel.send(message);
     }
 
     init() {

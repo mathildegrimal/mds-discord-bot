@@ -1,4 +1,6 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+import { CommandInteraction } from "discord.js";
+
+import { SlashCommandBuilder } from '@discordjs/builders';
 
 export default {
   data: new SlashCommandBuilder()
@@ -10,7 +12,7 @@ export default {
     .addNumberOption((option) =>
         option.setName('max').setDescription('Enter a number').setRequired(true)
     ),
-  async execute(interaction) {
+  async execute(interaction: CommandInteraction) {
     const max = interaction.options.getNumber('min');
     const min = interaction.options.getNumber('max');
     const random = Math.floor(Math.random() * (max - min) + min);

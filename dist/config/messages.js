@@ -1,4 +1,7 @@
-export default {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mentions = exports.howAreYou = exports.hellos = exports.helloKeywords = void 0;
+exports.default = {
     helloKeywords: [
         'hello',
         'salut',
@@ -43,8 +46,7 @@ export default {
         'Necesitas una mano ?',
     ],
 };
-
-export const helloKeywords = [
+exports.helloKeywords = [
     'hello',
     'salut',
     'bonjour',
@@ -57,18 +59,19 @@ export const helloKeywords = [
     'hey',
     'bijour',
 ];
-export const hellos = ['Bonjour', 'Saionara', 'Ciao', 'Hi', 'Olà', 'Gutten tag'];
-export const howAreYou = [
+exports.hellos = ['Bonjour', 'Saionara', 'Ciao', 'Hi', 'Olà', 'Gutten tag'];
+exports.howAreYou = [
     'Comment ça va',
     'How are you',
     'Come stai',
     'Como estas',
     "wie geht's",
 ];
-export const mentions = [
+exports.mentions = [
     "Vous m'avez demandé ?",
     'What can I do for you ?',
     'Hai bisogno di aiuto ?',
     'Brauche Hilfe?',
     'Necesitas una mano ?',
 ];
+//# sourceMappingURL=messages.js.map

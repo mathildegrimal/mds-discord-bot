@@ -10,7 +10,7 @@ exports.default = {
         const row = new MessageActionRow().addComponents(new MessageButton()
             .setLabel('Consulter la météo')
             .setStyle('LINK')
-            .setURL("https://www.lachainemeteo.com/meteo-france/ville-963/previsions-meteo-montpellier-aujourdhui"));
+            .setURL('https://www.lachainemeteo.com/meteo-france/ville-963/previsions-meteo-montpellier-aujourdhui'));
         await interaction.reply({
             content: 'Voici le lien !',
             components: [row],
