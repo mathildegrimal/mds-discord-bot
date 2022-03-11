@@ -27,19 +27,21 @@ export default {
         'Привет',
     ],
     howAreYou: [
+        '怎么样了',
         'Comment ça va',
         'How are you',
         'Come stai',
         'Como estas',
         "wie geht's",
-        '怎么样了',
-        'как идут дела'
+        'как идут дела',
     ],
     mentions: [
         "Vous m'avez demandé ?",
+        "你问过我",
+        "вы просили меня ?",
         'What can I do for you ?',
         'Hai bisogno di aiuto ?',
-        'Brauche Hilfe?',
+        'Brauche Hilfe ?',
         'Necesitas una mano ?',
     ],
 };
