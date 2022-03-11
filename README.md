@@ -1,5 +1,17 @@
-# MyWonderFulBot,
-## a wonderful bot for discord that is useless but was fun to develop
+
+- [MyWonderFulBot, a wonderful bot for discord that is useless but was fun to develop](#mywonderfulbot-a-wonderful-bot-for-discord-that-is-useless-but-was-fun-to-develop)
+    - [1. Technologies](#1-technologies)
+      - [Hosting](#hosting)
+    - [2. How to install this bot on your server](#2-how-to-install-this-bot-on-your-server)
+    - [3. How to talk with the bot](#3-how-to-talk-with-the-bot)
+    - [4. How to reuse the project and personalize it](#4-how-to-reuse-the-project-and-personalize-it)
+      - [Installation](#installation)
+      - [Add other commands](#add-other-commands)
+      - [Deployment](#deployment)
+
+# MyWonderFulBot, a wonderful bot for discord that is useless but was fun to develop
+
+================================================================
 
 ### 1. Technologies
 
@@ -7,7 +19,7 @@ The bot is writen in [TypeScript](https://www.typescriptlang.org/), built using 
 Good guide to understand how to code bots [here](https://discordjs.guide/)
 
 #### Hosting
-The bot is currently hosted on Heroku. See 
+The bot is currently hosted on Heroku. See [Deployment section](#deployment)
 
 ### 2. How to install this bot on your server
 
