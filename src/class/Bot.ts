@@ -1,18 +1,29 @@
-import { TextChannel } from 'discord.js';
+import { Collection, MessageActionRow, MessageButton, MessageEmbed, TextChannel } from 'discord.js';
+import path from 'path';
 const { Client, Intents } = require('discord.js');
 require('dotenv').config();
+const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { hellos, howAreYou, helloKeywords, mentions } = require('./messages');
+const { hellos, howAreYou, helloKeywords, mentions } = require('../config/messages');
 import { getCommands } from '../utils/deploy-commands';
 
 export class Bot {
     client = new Client({
         intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
     });
-    rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
+   
 
-    commands = getCommands();
+    constructor() {
+        this.client.commands = new Collection();
+        const commandFiles = fs
+            .readdirSync(path.join(__dirname, '../commands'))
+            .filter((file) => file.endsWith('.js'));
+        for (const file of commandFiles) {
+            const command = require(path.join(__dirname, '../commands', file)).default;
+            this.client.commands.set(command.data.name, command);   
+        }
+    }
 
     ready() {
         this.client.once('ready', () => {
@@ -21,13 +32,15 @@ export class Bot {
     }
 
     putCommands() {
-        this.rest
+        const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
+        const commands = getCommands();
+        rest
             .put(
                 Routes.applicationGuildCommands(
                     process.env.CLIENT_ID,
                     process.env.GUILD_ID
                 ),
-                { body: this.commands }
+                { body: commands }
             )
             .then(() =>
                 console.log('Successfully registered application commands.')
@@ -35,8 +48,11 @@ export class Bot {
             .catch(console.error);
     }
 
+    
+
     listenMessages() {
         this.client.on('messageCreate', async (message: any) => {
+
             const { content, channel } = message;
 
             if (content.includes(this.client.user.id)) {
@@ -77,7 +93,6 @@ export class Bot {
             if (!interaction.isCommand()) return;
 
             const command = this.client.commands.get(interaction.commandName);
-
             if (!command) return;
 
             try {

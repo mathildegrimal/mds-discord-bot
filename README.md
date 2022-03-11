@@ -17,6 +17,7 @@ Just paste this link in your browser :
 - Mention @MyWonderfulBot and it will send you a kind message to offer you help.
 - Say "hello" (language you want between italian, spanish, deutch, english, french and chinese) and it will answer you ! But it is not smart enough to answer in the same language as you. It is often confused between english and italian or spanish so...be patient and kind.
 - type /random, and choose min and max : it will send you a random number between min and max, so you can play the lotto or wtf game you want
+- type /meteo to have a link to the daily weather in your city
 
 
 ### 4. How to reuse the project and personalize it

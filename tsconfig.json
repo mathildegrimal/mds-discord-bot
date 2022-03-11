@@ -1,21 +1,17 @@
-
-  {"compilerOptions": {
+{
+  "compilerOptions": {
     "module": "commonjs",
     "outDir": "dist",
     "newLine": "LF",
     "target": "ES2019",
     "sourceMap": true,
-    "lib": ["ES2019", "dom" ],
+    "lib": ["ES2019"],
     "skipLibCheck": true,
     "esModuleInterop": true
   },
   "exclude": [
     "node_modules",
-    "tests",
-    "coverage",
-    "build",
-    "dist",
-    "*.d.ts",
-    "*.config.ts"
-  ]
+    "src/dist",
+  ],
+  "include": ["src"]
 }
