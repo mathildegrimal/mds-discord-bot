@@ -6,6 +6,8 @@
 The bot is writen in [TypeScript](https://www.typescriptlang.org/), built using [node.js](https://nodejs.org/en/) and the [discord.js](https://discord.js.org/#/) library.
 Good guide to understand how to code bots [here](https://discordjs.guide/)
 
+#### Hosting
+The bot is currently hosted on Heroku. See 
 
 ### 2. How to install this bot on your server
 
@@ -72,3 +74,10 @@ All commands added in the command folder will automatically be deployed on your 
 
 We advise to use **Heroku** for the hosting of the application (or any other solution offering the same possibilities).
 Heroku is a PaaS (Platform as a Service) that allows to host applications on the Cloud. The main advantage is to be able to automatically deploy applications from online repos, hosted on Github for example.
+
+You must first create an account on https://www.heroku.com/, and a new app.
+You must also create a new repo on your github account and clone the Captain Hook repo.
+
+On the page of your application, several tabs allow you to configure the app.
+
+On the tab ***Settings***, go to *Config Vars* to enter the conig vars as in the .env file.
